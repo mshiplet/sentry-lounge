@@ -1,0 +1,191 @@
+/* Palette: change these to retune the whole look. */
+:root {
+  --sky-top: #0d0221;
+  --sky-mid: #240b4f;
+  --sky-low: #5b1a6e;
+  --horizon: #ff4fd8;
+  --cyan: #22d3ee;
+  --pink: #ff4fd8;
+  --text: #ffffff;
+  --tile-bg: rgba(20, 8, 52, 0.78);
+  --grid-line: rgba(255, 79, 216, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-low) 100%) fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Static neon grid along the bottom of the screen. */
+.floor {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22vh;
+  border-top: 2px solid var(--horizon);
+  background:
+    repeating-linear-gradient(to right, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 30px),
+    linear-gradient(to bottom, #1a0638, #0d0221);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 28px 40px 48px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 22px;
+}
+
+.clock {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.clock[hidden] { display: none; }
+
+.clock-time {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text);
+  text-shadow: 0 0 8px var(--cyan);
+}
+
+.clock-date {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+h1 {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 10px;
+  color: var(--text);
+  text-shadow: 0 0 10px var(--pink), 0 0 2px var(--pink);
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+section { margin-bottom: 34px; }
+section:last-child { margin-bottom: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 170px;
+  padding: 18px;
+  border: 2px solid var(--cyan);
+  border-radius: 18px;
+  background: var(--tile-bg);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.08s ease-out;
+}
+
+.tile:active { transform: scale(0.96); }
+
+.tile-icon {
+  width: 150px;
+  height: 72px;
+  background-color: var(--cyan);
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.tile-mark {
+  height: 64px;
+  line-height: 64px;
+  font-size: 44px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: var(--cyan);
+}
+
+.tile-name {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Ordinary links: smaller, pink, icon beside the name. */
+.links .tile {
+  flex-direction: row;
+  min-height: 88px;
+  border-color: var(--pink);
+  box-shadow: 0 0 14px rgba(255, 79, 216, 0.4);
+}
+
+.links .tile-icon {
+  width: 34px;
+  height: 34px;
+  background-color: var(--pink);
+}
+
+.links .tile-mark {
+  height: 34px;
+  line-height: 34px;
+  font-size: 26px;
+  color: var(--pink);
+}
+
+.links .tile-name { font-size: 21px; }
+
+@media (max-width: 700px) {
+  main { padding: 20px 16px 32px; }
+  h1 { font-size: 22px; letter-spacing: 6px; }
+  .clock { gap: 2px 10px; flex-wrap: wrap; }
+  h1 { font-size: 20px; letter-spacing: 5px; }
+  .clock-time { font-size: 16px; }
+  .clock-date { font-size: 12px; letter-spacing: 2px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .tile { min-height: 130px; }
+  .tile-name { font-size: 18px; }
+  .links .tile { min-height: 68px; }
+  .links .tile-name { font-size: 17px; }
+}
