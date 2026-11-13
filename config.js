@@ -31,6 +31,7 @@ window.MYDASH = {
     { name: "Prime Video", url: "https://www.amazonprime.com",   icon: "icons/primevideo.svg",   fullscreen: "native" },
   ],
 
+  // Shown under the "Social" heading. These open as normal pages.
   links: [
     { name: "X",        url: "https://x.com",            icon: "icons/x.svg" },
     { name: "Facebook", url: "https://www.facebook.com", icon: "icons/facebook.svg" },
