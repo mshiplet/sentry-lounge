@@ -35,5 +35,7 @@ window.MYDASH = {
     { name: "X",        url: "https://x.com",            icon: "icons/x.svg" },
     { name: "Facebook", url: "https://www.facebook.com", icon: "icons/facebook.svg" },
     { name: "Reddit",   url: "https://www.reddit.com",   icon: "icons/reddit.svg" },
+    // Opens Google Maps already searching for restaurants around you.
+    { name: "Food Near Me", url: "https://www.google.com/maps/search/restaurants+near+me", icon: "icons/food.svg" },
   ],
 };
