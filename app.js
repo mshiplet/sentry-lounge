@@ -81,4 +81,5 @@
 
   fill("theater", config.theater);
   fill("links", config.links);
+  fill("nearby", config.nearby);
 })();

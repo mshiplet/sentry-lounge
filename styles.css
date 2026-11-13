@@ -156,8 +156,25 @@ section:last-child { margin-bottom: 0; }
 /* Ordinary links: smaller, pink, icon beside the name.
    They fit as many per row as there is room for. */
 .links .grid {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
+
+/* Links and Near me sit side by side, sharing the row by tile count. */
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.split section {
+  flex: 1 1 380px;
+  margin-bottom: 0;
+}
+
+.split #links { flex-grow: 3; }
+.split #nearby { flex-grow: 2; }
+
+.links .tile-icon { flex: none; }
 
 .links .tile {
   flex-direction: row;
