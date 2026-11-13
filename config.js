@@ -23,7 +23,6 @@ window.MYDASH = {
 
   theater: [
     { name: "DirecTV",     url: "https://stream.directv.com",    mark: "DTV",                    fullscreen: "redirect" },
-    { name: "Disney+",     url: "https://www.disneyplus.com",    mark: "D+",                     fullscreen: "native" },
     { name: "Apple TV+",   url: "https://tv.apple.com",          icon: "icons/appletv.svg",      fullscreen: "native" },
     { name: "HBO Max",     url: "https://www.hbomax.com",        icon: "icons/hbomax.svg",       fullscreen: "native" },
     { name: "Paramount+",  url: "https://www.paramountplus.com", icon: "icons/paramountplus.svg", fullscreen: "native" },
