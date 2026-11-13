@@ -46,7 +46,7 @@ main {
   position: relative;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 28px 40px 48px;
+  padding: 28px 40px 28px;
 }
 
 header {
@@ -101,7 +101,7 @@ h2 {
   color: var(--pink);
 }
 
-section { margin-bottom: 34px; }
+section { margin-bottom: 24px; }
 section:last-child { margin-bottom: 0; }
 
 .grid {
@@ -116,7 +116,8 @@ section:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: center;
   gap: 14px;
-  min-height: 170px;
+  /* Shrinks on shorter screens so all three groups fit without scrolling. */
+  min-height: clamp(110px, 17vh, 170px);
   padding: 18px;
   border: 2px solid var(--cyan);
   border-radius: 18px;
@@ -159,22 +160,10 @@ section:last-child { margin-bottom: 0; }
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-/* Social and Near me sit side by side, sharing the row equally. */
-.split {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-}
-
-.split section {
-  flex: 1 1 420px;
-  margin-bottom: 0;
-}
-
 .links .tile {
   gap: 10px;
   padding: 14px 10px;
-  min-height: 104px;
+  min-height: 92px;
   border-color: var(--pink);
   box-shadow: 0 0 14px rgba(255, 79, 216, 0.4);
   text-align: center;
