@@ -153,13 +153,13 @@ section:last-child { margin-bottom: 0; }
   letter-spacing: 1px;
 }
 
-/* Ordinary links: smaller, pink, icon beside the name.
-   They fit as many per row as there is room for. */
+/* Small pink tiles (Social, Near me): icon above the name so they stay
+   narrow, and as many per row as there is room for. */
 .links .grid {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
-/* Links and Near me sit side by side, sharing the row by tile count. */
+/* Social and Near me sit side by side, sharing the row equally. */
 .split {
   display: flex;
   flex-wrap: wrap;
@@ -167,23 +167,21 @@ section:last-child { margin-bottom: 0; }
 }
 
 .split section {
-  flex: 1 1 380px;
+  flex: 1 1 420px;
   margin-bottom: 0;
 }
 
-.split #links { flex-grow: 3; }
-.split #nearby { flex-grow: 2; }
-
-.links .tile-icon { flex: none; }
-
 .links .tile {
-  flex-direction: row;
-  min-height: 88px;
+  gap: 10px;
+  padding: 14px 10px;
+  min-height: 104px;
   border-color: var(--pink);
   box-shadow: 0 0 14px rgba(255, 79, 216, 0.4);
+  text-align: center;
 }
 
 .links .tile-icon {
+  flex: none;
   width: 34px;
   height: 34px;
   background-color: var(--pink);
@@ -196,7 +194,7 @@ section:last-child { margin-bottom: 0; }
   color: var(--pink);
 }
 
-.links .tile-name { font-size: 21px; }
+.links .tile-name { font-size: 18px; letter-spacing: 0.5px; }
 
 @media (max-width: 700px) {
   main { padding: 20px 16px 32px; }
@@ -205,9 +203,10 @@ section:last-child { margin-bottom: 0; }
   h1 { font-size: 20px; letter-spacing: 5px; }
   .clock-time { font-size: 16px; }
   .clock-date { font-size: 12px; letter-spacing: 2px; }
-  .grid, .links .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .links .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .links .tile-name { font-size: 14px; }
   .tile { min-height: 130px; }
   .tile-name { font-size: 18px; }
-  .links .tile { min-height: 68px; }
-  .links .tile-name { font-size: 17px; }
+  .links .tile { min-height: 92px; }
 }

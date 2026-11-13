@@ -42,5 +42,6 @@ window.MYDASH = {
   nearby: [
     { name: "Food",      url: "https://www.google.com/maps/search/restaurants+near+me",      icon: "icons/food.svg" },
     { name: "Restrooms", url: "https://www.google.com/maps/search/public+restrooms+near+me", icon: "icons/restroom.svg" },
+    { name: "Things to Do", url: "https://www.google.com/maps/search/things+to+do+near+me",   icon: "icons/todo.svg" },
   ],
 };
